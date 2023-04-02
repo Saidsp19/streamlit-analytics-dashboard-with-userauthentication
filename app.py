@@ -13,7 +13,7 @@ from yaml.loader import SafeLoader
 st.set_page_config(page_title="Data Dashboard", page_icon=":bar_chart:", layout="wide")
 
 
-with open('config.yaml') as file:
+with open('config_custom.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
 authenticator = stauth.Authenticate(

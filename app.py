@@ -6,21 +6,24 @@ import plotly.express as px  # pip install plotly-express
 import streamlit as st  # pip install streamlit
 import streamlit_authenticator as stauth  # pip install streamlit-authenticator
 
+import yaml
+from yaml.loader import SafeLoader
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Data Dashboard", page_icon=":bar_chart:", layout="wide")
 
 
-# --- USER AUTHENTICATION ---
-names = ["Peter Parker", "Rebecca Miller"]
-usernames = ["pparker", "rmiller"]
+with open('config.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
 
-# load hashed passwords
-file_path = Path(__file__).parent / "hashed_pw.pkl"
-with file_path.open("rb") as file:
-    hashed_passwords = pickle.load(file)
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    config['preauthorized']
+)
 
-authenticator = stauth.authenticate(names, usernames, hashed_passwords, "data_dashboard", "xyzabc", cookie_expiry_days=30)
 
 name, authentication_status, username = authenticator.login("Login", "main")
 

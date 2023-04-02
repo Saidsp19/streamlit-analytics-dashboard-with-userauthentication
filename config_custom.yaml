@@ -7,19 +7,11 @@ credentials:
     dbaldwin:
       email: dbaldwin@gmail.com
       name: David Baldwin
-      password: abcdef
+      password: '$2b$12$wTBW5/7yzE1/l5bmUXyCF.tYbQNO8JX/uDqc1l0fYLuYNVB8IwOfW'
     jsmith:
       email: jsmith@gmail.com
       name: John Smith
-      password: hellomawa
-    rbriggs:
-      email: rbriggs@gmail.com
-      name: Rebecca Briggs
-      password: sarsarle
-    rcouper:
-      email: rcouper@gmail.com
-      name: Ross Couper
-      password: atlutaddimanthoni
+      password: '$2b$12$pCLOJQYiXq3T/iF2Nclnh.UwwifsH/oaLs4VARF9P1k1DFUUP9Xym'
 preauthorized:
   emails:
   - melsby@gmail.com

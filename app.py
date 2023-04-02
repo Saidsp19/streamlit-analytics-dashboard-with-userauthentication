@@ -8,7 +8,7 @@ import streamlit_authenticator as stauth  # pip install streamlit-authenticator
 
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="Sales Dashboard", page_icon=":bar_chart:", layout="wide")
+st.set_page_config(page_title="Data Dashboard", page_icon=":bar_chart:", layout="wide")
 
 
 # --- USER AUTHENTICATION ---
@@ -20,8 +20,7 @@ file_path = Path(__file__).parent / "hashed_pw.pkl"
 with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
 
-authenticator = stauth.Authenticate(names, usernames, hashed_passwords,
-    "data_dashboard", "xyzabc", cookie_expiry_days=30)
+authenticator = stauth.authenticate(names, usernames, hashed_passwords, "data_dashboard", "xyzabc", cookie_expiry_days=30)
 
 name, authentication_status, username = authenticator.login("Login", "main")
 
